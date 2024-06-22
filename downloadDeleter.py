@@ -1,10 +1,23 @@
+#!/usr/bin/env python
+""" Literally just clears my downloads folder.
+
+You might be wondering "Why does he have a python script that clears a downloads folder?". 
+The answer is simple. Why not? I was bored one day...
+
+"""
+
 import os
 import send2trash
+
+__author___ = "Austin Greer"
+__maintainer___ = "Austin Greer"
+__email__ = "greer.austin1409@gmail.com"
 
 
 if __name__ == "__main__":
 
-    itemsToDownload = os.listdir("/Users/greer/Downloads")
+    downloadsPath = os.getenv('PATH_TO_DOWNLOADS_FOLDER')
+    itemsToDownload = os.listdir(downloadsPath)
 
     if itemsToDownload == [] or len(itemsToDownload) == 0:
         print('\n')
@@ -16,6 +29,6 @@ if __name__ == "__main__":
     print("\nSending Items to Trash...")
 
     for item in itemsToDownload:
-        send2trash.send2trash("/Users/greer/Downloads/" + item)
+        send2trash.send2trash(downloadsPath + item)
     
     print("\nSuccess! All items moved to Trash!\n")

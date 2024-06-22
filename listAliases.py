@@ -1,8 +1,20 @@
+#!/usr/bin/env python
+""" A simple script that lists all my aliases that I have made in my terminal
+
+I kept forgetting the many aliases that I make, so I made a script to list them out
+
+"""
+
 import os
+
+__author___ = "Austin Greer"
+__maintainer___ = "Austin Greer"
+__email__ = "greer.austin1409@gmail.com"
 
 if __name__ == '__main__':
     
-    f = open("/Users/greer/.zshrc")
+    shellPath = os.getenv("PATH_TO_SHELL_PROFILE") 
+    f = open(shellPath)
 
     listOfAliases = list()
     for line in f:
